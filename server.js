@@ -26,4 +26,21 @@ db.once('open', () => {
   });
 });
 
-// TODO: Create a new instance of the model including the book subdocuments
+// Seed database for demonstration.
+Library.create(
+  {
+    name: 'Reading Rainbow Library',
+    books: [
+      { title: 'Diary of Anne Frank', price: 10 },
+      { title: 'One Hundred Years of Solitude', price: 20 },
+      { title: 'History of Hogwarts', price: 5 },
+    ],
+  },
+  (err, libraries) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(libraries);
+    }
+  }
+);
